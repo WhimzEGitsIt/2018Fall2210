@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: Bedroom scene assets.ma
-//Last modified: Thu, Aug 30, 2018 08:02:32 PM
+//Last modified: Thu, Aug 30, 2018 08:04:10 PM
 //Codeset: 1252
 requires maya "2018";
 currentUnit -l centimeter -a degree -t film;
@@ -13,13 +13,13 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "71AC3F83-4FEA-A84F-0573-789773A577E1";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -12.331458584499677 7.8572448297536637 41.473795855738594 ;
-	setAttr ".r" -type "double3" -2.138352621643584 -2534.5999999948522 -5.1354444509348898e-17 ;
+	setAttr ".t" -type "double3" -8.9342582903134691 7.5183767969054456 24.478746439468114 ;
+	setAttr ".r" -type "double3" -3.9383525706293701 -2540.5999999996816 -1.0618163695865969e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "9D0F647E-4A0D-73B3-0276-559B002FC257";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 54.735689077344219;
+	setAttr ".coi" 38.704100508018527;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -4186,7 +4186,20 @@ createNode mesh -n "pCylinderShape2" -p "pCylinder2";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.84375 ;
+	setAttr ".pv" -type "double2" 0.5 0.50046992301940918 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr ".ai_translator" -type "string" "polymesh";
+createNode mesh -n "polySurfaceShape1" -p "pCylinder2";
+	rename -uid "995A9BD7-4D2B-3D42-116F-FB8D5676C0AC";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".pv" -type "double2" 0.5 0.50046992301940918 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr -s 34 ".uvst[0].uvsp[0:33]" -type "float2" 0.375 0.3125 0.390625
 		 0.3125 0.40625 0.3125 0.421875 0.3125 0.4375 0.3125 0.453125 0.3125 0.46875 0.3125
@@ -4318,6 +4331,17 @@ createNode script -n "sceneConfigurationScriptNode";
 	rename -uid "9E59E24D-4213-07CC-5413-66821E23CFE2";
 	setAttr ".b" -type "string" "playbackOptions -min 1 -max 120 -ast 1 -aet 200 ";
 	setAttr ".st" 6;
+createNode polyExtrudeFace -n "polyExtrudeFace1";
+	rename -uid "C8FDA386-4CA2-913D-8566-039B58EBCB2C";
+	setAttr ".ics" -type "componentList" 1 "f[0:15]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 0.687504299609912 0 0 0 0 1 0 0.17382065975375377 5.8359719294224739 -10.692787159750031 1;
+	setAttr ".ws" yes;
+	setAttr ".pvt" -type "float3" 0.17382066 5.8359718 -10.692787 ;
+	setAttr ".rs" 61700;
+	setAttr ".lt" -type "double3" 5.7245874707234634e-16 -1.6215327691693204e-15 0.014987231884129561 ;
+	setAttr ".c[0]"  0 1 1;
+	setAttr ".cbn" -type "double3" -0.82617934024624629 5.1484676298125622 -11.692787100145386 ;
+	setAttr ".cbx" -type "double3" 1.1738206597537537 6.5234762290323856 -9.692787159750031 ;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -4351,12 +4375,15 @@ select -ne :ikSystem;
 	setAttr -s 4 ".sol";
 connectAttr "groupId1.id" "geo_bedframeShape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "geo_bedframeShape.iog.og[0].gco";
+connectAttr "polyExtrudeFace1.out" "pCylinderShape2.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
+connectAttr "polySurfaceShape1.o" "polyExtrudeFace1.ip";
+connectAttr "pCylinderShape2.wm" "polyExtrudeFace1.mp";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "geo_boxSpringShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "geo_bedframeShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
