@@ -227,8 +227,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 358654218}
-  m_LocalRotation: {x: -0.002712515, y: 0.98197633, z: 0.18845525, w: 0.014134027}
-  m_LocalPosition: {x: -6.89, y: 0.21, z: 14.55}
+  m_LocalRotation: {x: -0.110120766, y: 0.411373, z: 0.050144676, w: 0.9033998}
+  m_LocalPosition: {x: -15.5, y: 0.9, z: -2.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 872772080}
@@ -554,7 +554,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0.02540686, y: 359.706, z: 0.02340287}
+  m_LocalEulerAnglesHint: {x: 0.0000001702648, y: 0.2238086, z: 0.0000003878289}
 --- !u!95 &1082947064
 Animator:
   serializedVersion: 3
@@ -692,7 +692,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1316022404}
-  m_LocalRotation: {x: -0.002712518, y: 0.98197633, z: 0.18845524, w: 0.014134044}
+  m_LocalRotation: {x: -0.002712515, y: 0.98197633, z: 0.18845525, w: 0.014134027}
   m_LocalPosition: {x: -6.89, y: 0.21, z: 14.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -945,8 +945,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1813497159}
-  m_LocalRotation: {x: -0.002583429, y: 0.935245, z: 0.17948684, w: 0.32035986}
-  m_LocalPosition: {x: -6.89, y: 0.21, z: 14.55}
+  m_LocalRotation: {x: -0.10998378, y: 0.4108612, z: 0.0500823, w: 0.32035986}
+  m_LocalPosition: {x: -15.5, y: 0.9, z: -2.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1033,7 +1033,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 7cdf49923f29bb144af9cb54ab42130d, type: 2}
   m_InitialState: 1
-  m_WrapMode: 2
+  m_WrapMode: 1
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
@@ -1065,6 +1065,8 @@ PlayableDirector:
     value: {fileID: 566991915}
   - key: {fileID: 114955042798368044, guid: 7cdf49923f29bb144af9cb54ab42130d, type: 2}
     value: {fileID: 933293232}
+  - key: {fileID: 114446559035842300, guid: 7cdf49923f29bb144af9cb54ab42130d, type: 2}
+    value: {fileID: 1082947061}
   m_ExposedReferences:
     m_References:
     - 020dfa1c697b49c458171d8707256e20: {fileID: 1923019362}
