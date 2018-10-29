@@ -1,6 +1,6 @@
 //Maya ASCII 2018 scene
 //Name: OilPump.ma
-//Last modified: Mon, Oct 29, 2018 12:24:37 AM
+//Last modified: Mon, Oct 29, 2018 12:33:54 AM
 //Codeset: 1252
 requires maya "2018";
 requires "stereoCamera" "10.0";
@@ -14,15 +14,15 @@ fileInfo "osv" "Microsoft Windows 8 Home Premium Edition, 64-bit  (Build 9200)\n
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "D135BBEC-4619-E4CB-D19D-BF94C2CDCD0A";
-	setAttr ".t" -type "double3" 37.243535118238654 34.031890086371945 178.92825802432796 ;
-	setAttr ".r" -type "double3" -5.1383509745198879 3972.1999999937302 1.0168888635270224e-16 ;
+	setAttr ".t" -type "double3" 59.391236985785895 67.0721599574252 160.04288090895082 ;
+	setAttr ".r" -type "double3" -10.53835097383754 3966.1999999834197 9.9977103472766129e-17 ;
 	setAttr ".rp" -type "double3" 1.7763568394002505e-15 1.4210854715202004e-14 1.1368683772161603e-13 ;
 	setAttr ".rpt" -type "double3" -2.6732121747404237e-15 6.3726729783881892e-14 -1.9767927475885265e-13 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "8AB7F410-48D0-52D5-2E5F-15AC5C2ED8E7";
 	setAttr -k off ".v";
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 184.7996889843364;
+	setAttr ".coi" 184.79968898454717;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -16344,6 +16344,33 @@ createNode nurbsCurve -n "ControlShape" -p "Control";
 	rename -uid "ED7CCA9A-42E8-10BC-4B45-FCA77CBF3F2D";
 	setAttr -k off ".v";
 	setAttr ".tw" yes;
+createNode transform -n "pPlane1";
+	rename -uid "4C86EDF5-4529-F473-0333-4FA74181194A";
+	setAttr ".t" -type "double3" 50.145802733806875 5.6137482302182233 3.7368405922988184 ;
+	setAttr ".s" -type "double3" 24.190028019968953 24.190028019968953 24.190028019968953 ;
+createNode mesh -n "pPlaneShape1" -p "pPlane1";
+	rename -uid "CFA43374-4CC9-23A8-F5AB-E5A968B65CA1";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+createNode transform -n "pCylinder51";
+	rename -uid "FFD77F21-41AD-F5B8-0200-F98608C87BBB";
+	setAttr ".t" -type "double3" 42.668024335014174 47.704046045768592 0 ;
+createNode mesh -n "pCylinderShape51" -p "pCylinder51";
+	rename -uid "BBD9617C-4C64-774B-9330-C99900BEC6DA";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
 createNode lightLinker -s -n "lightLinker1";
 	rename -uid "F122110D-4D8C-08BC-F2DE-B39E55C573D5";
 	setAttr -s 3 ".lnk";
@@ -16367,7 +16394,6 @@ createNode renderLayer -n "defaultRenderLayer";
 createNode displayLayer -n "Refimage";
 	rename -uid "AB81A0DC-473A-5B56-0E83-21913739B835";
 	setAttr ".dt" 2;
-	setAttr ".v" no;
 	setAttr ".do" 1;
 createNode script -n "uiConfigurationScriptNode";
 	rename -uid "EBDD5908-4B36-A0B7-7808-61B58A82EB6E";
@@ -16654,6 +16680,13 @@ createNode animCurveUA -n "WalkingBeam_rotateZ";
 		0.5 -37.06826574504791 0.60000002384185791 -33.372487713147606 0.69999998807907104 
 		-23.048857507864625 0.75 -17.456260732181011 0.80000001192092896 -10.835032247454398 
 		0.89999997615814209 -2.5012832004788002 1 0;
+createNode polyPlane -n "polyPlane1";
+	rename -uid "C21BCC59-42B6-66F1-F920-A1A7CF49969A";
+	setAttr ".cuv" 2;
+createNode polyCylinder -n "polyCylinder1";
+	rename -uid "840C3AB1-4F2C-F590-5BE7-27A8C272BAC4";
+	setAttr ".sc" 1;
+	setAttr ".cuv" 3;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -16672,7 +16705,7 @@ select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderingList1;
 select -ne :initialShadingGroup;
-	setAttr -s 73 ".dsm";
+	setAttr -s 75 ".dsm";
 	setAttr ".ro" yes;
 	setAttr -s 36 ".gn";
 select -ne :initialParticleSE;
@@ -16777,6 +16810,8 @@ connectAttr "Control_scaleX.o" "Control.sx";
 connectAttr "Control_scaleY.o" "Control.sy";
 connectAttr "Control_scaleZ.o" "Control.sz";
 connectAttr "transformGeometry1.og" "ControlShape.cr";
+connectAttr "polyPlane1.out" "pPlaneShape1.i";
+connectAttr "polyCylinder1.out" "pCylinderShape51.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
@@ -16868,6 +16903,8 @@ connectAttr "|polySurface120|polySurfaceShape121.iog.og[0]" ":initialShadingGrou
 connectAttr "|polySurface121|polySurfaceShape121.iog.og[0]" ":initialShadingGroup.dsm"
 		 -na;
 connectAttr "CounterWeightShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
+connectAttr "pPlaneShape1.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "pCylinderShape51.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "groupId183.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId184.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId185.msg" ":initialShadingGroup.gn" -na;
