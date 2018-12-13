@@ -1,0 +1,16 @@
+newmtl brambleThorny1FlowerShaderSG
+illum 4
+Kd 0.47 0.32 0.24
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.15 0.15 0.15
+Ns 1.30
+newmtl brambleThorny1ShaderSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 1.30
